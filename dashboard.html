@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - TCK Dentals</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .sidebar-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: #3498db;
+        }
+
+        .nav-menu i {
+            margin-right: 1rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+            background-color: #f5f6fa;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header h2 {
+            color: #2c3e50;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: #3498db;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .appointments-table {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .status.confirmed {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        .status.pending {
+            background-color: #f1c40f;
+            color: #fff;
+        }
+
+        .status.cancelled {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .edit-btn {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>TCK Dentals</h1>
+                <p>Staff Dashboard</p>
+            </div>
+
+            <ul class="nav-menu">
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-home"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-calendar-alt"></i>
+                        Appointments
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-friends"></i>
+                        Patients
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-medical"></i>
+                        Medical Records
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h2>Dashboard Overview</h2>
+                <div class="user-info">
+                    <img src="../images/staff-avatar.jpg" alt="Staff Member">
+                    <span>Welcome, Admin</span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Today's Appointments</h3>
+                    <p>12</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Patients</h3>
+                    <p>1,234</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Appointments</h3>
+                    <p>5</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Completed Today</h3>
+                    <p>8</p>
+                </div>
+            </div>
+
+            <div class="appointments-table">
+                <h3>Recent Appointments</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Smith</td>
+                            <td>2024-03-25</td>
+                            <td>09:00 AM</td>
+                            <td>Regular Check-up</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Johnson</td>
+                            <td>2024-03-25</td>
+                            <td>10:30 AM</td>
+                            <td>Teeth Cleaning</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Michael Brown</td>
+                            <td>2024-03-25</td>
+                            <td>02:00 PM</td>
+                            <td>Dental Filling</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Emily Davis</td>
+                            <td>2024-03-25</td>
+                            <td>03:30 PM</td>
+                            <td>Teeth Whitening</td>
+                            <td><span class="status cancelled">Cancelled</span></td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Add event listeners for the action buttons
+        document.querySelectorAll('.action-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.classList.contains('edit-btn') ? 'edit' : 'delete';
+                const row = this.closest('tr');
+                const patientName = row.cells[0].textContent;
+
+                if (action === 'edit') {
+                    // Implement edit functionality
+                    alert(`Edit appointment for ${patientName}`);
+                } else {
+                    // Implement delete functionality
+                    if (confirm(`Are you sure you want to delete the appointment for ${patientName}?`)) {
+                        row.remove();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - TCK Dentals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .services-section {
+            padding: 120px 5% 5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .book-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>TCK Dentals</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="appointments.html">Book Appointment</a>
+                <a href="register.html">Register</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services-section">
+            <div class="section-header">
+                <h2>Our Dental Services</h2>
+                <p>We offer a comprehensive range of dental services to maintain and improve your oral health. Our experienced team uses the latest technology and techniques to ensure the best possible care.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="src/img_dent.jpeg" alt="Regular Check-up" class="service-image">
+                    <div class="service-content">
+                        <h3>Regular Check-up</h3>
+                        <p>Comprehensive dental examination and cleaning to maintain your oral health.</p>
+                        <p class="service-price">From GH₵ 250.00</p>
+                        <a href="appointments.html" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="src/cleaning.jpg" alt="Teeth Cleaning" class="service-image">
+                    <div class="service-content">
+                        <h3>Professional Cleaning</h3>
+                        <p>Deep cleaning to remove plaque and tartar, preventing gum disease.</p>
+                        <p class="service-price">From GH₵ 600.00</p>
+                        <a href="appointments.html" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="src/whitening.jpg" alt="Teeth Whitening" class="service-image">
+                    <div class="service-content">
+                        <h3>Teeth Whitening</h3>
+                        <p>Professional teeth whitening treatment for a brighter, whiter smile.</p>
+                        <p class="service-price">From GH₵ 400.00</p>
+                        <a href="appointments.html" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="src/filling.jpg" alt="Dental Filling" class="service-image">
+                    <div class="service-content">
+                        <h3>Dental Filling</h3>
+                        <p>Treatment for cavities using modern composite materials.</p>
+                        <p class="service-price">From GH₵ 1,500.00</p>
+                        <a href="appointments.html" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="src/crown.jpg" alt="Dental Crown" class="service-image">
+                    <div class="service-content">
+                        <h3>Dental Crown</h3>
+                        <p>Custom-made crowns to restore damaged or decayed teeth.</p>
+                        <p class="service-price">From GH₵ 2,500.00</p>
+                        <a href="appointments.html" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="src/root-canal.jpg" alt="Root Canal" class="service-image">
+                    <div class="service-content">
+                        <h3>Root Canal Treatment</h3>
+                        <p>Advanced treatment to save severely damaged or infected teeth.</p>
+                        <p class="service-price">From GH₵ 3,000.00</p>
+                        <a href="appointments.html" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>14 Custard St.</p>
+                <p>Accra, Ghana.</p>
+                <p>Phone: (233) 240-768-491</p>
+                <p>Email: info@tckdentals.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 9:00 AM - 2:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="fa-fb"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="fa-tt"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="fa-insta"><i class="fab fa-instagram"></i></a>
+                  </div>                  
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TCK Dentals. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Access - TCK Dentals</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .database-section {
+            padding: 2rem;
+            background-color: #f5f6fa;
+        }
+
+        .database-header {
+            margin-bottom: 2rem;
+        }
+
+        .database-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .database-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .database-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .search-box {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-options select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-view {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .btn-edit {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        .btn-delete {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .export-btn {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .pagination button.active {
+            background-color: #3498db;
+            color: #fff;
+            border-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>TCK Dentals</h1>
+                <p>Staff Dashboard</p>
+            </div>
+
+            <ul class="nav-menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-calendar-alt"></i>
+                        Appointments
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-friends"></i>
+                        Patients
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-database"></i>
+                        Database Access
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-medical"></i>
+                        Medical Records
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="database-section">
+            <div class="database-header">
+                <h2>Database Access</h2>
+                <p>Access and manage patient records, appointments, and medical data</p>
+            </div>
+
+            <div class="database-grid">
+                <div class="database-card">
+                    <h3>Patient Records</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search patients...">
+                        <div class="filter-options">
+                            <select>
+                                <option value="">Filter by Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                            <select>
+                                <option value="">Sort by</option>
+                                <option value="name">Name</option>
+                                <option value="date">Date</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="export-btn">Export Data</button>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Last Visit</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>PT001</td>
+                                <td>2024-03-15</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-view">View</button>
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                    </div>
+                </div>
+
+                <div class="database-card">
+                    <h3>Medical Records</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search medical records...">
+                        <div class="filter-options">
+                            <select>
+                                <option value="">Filter by Type</option>
+                                <option value="diagnosis">Diagnosis</option>
+                                <option value="treatment">Treatment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="export-btn">Export Data</button>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Record Type</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PT001</td>
+                                <td>Diagnosis</td>
+                                <td>2024-03-15</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-view">View</button>
+                                        <button class="btn btn-edit">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Database access functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            const searchInputs = document.querySelectorAll('.search-box input');
+            searchInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    // Implement search functionality
+                    console.log('Searching:', this.value);
+                });
+            });
+
+            // Filter functionality
+            const filterSelects = document.querySelectorAll('.filter-options select');
+            filterSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    // Implement filter functionality
+                    console.log('Filter changed:', this.value);
+                });
+            });
+
+            // Export functionality
+            const exportButtons = document.querySelectorAll('.export-btn');
+            exportButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Implement export functionality
+                    console.log('Exporting data...');
+                });
+            });
+
+            // Action buttons functionality
+            const actionButtons = document.querySelectorAll('.action-buttons button');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.classList.contains('btn-view') ? 'view' :
+                                 this.classList.contains('btn-edit') ? 'edit' : 'delete';
+                    const row = this.closest('tr');
+                    const id = row.querySelector('td:nth-child(2)').textContent;
+
+                    // Implement action functionality
+                    console.log(`${action} record:`, id);
+                });
+            });
+
+            // Pagination functionality
+            const paginationButtons = document.querySelectorAll('.pagination button');
+            paginationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Implement pagination functionality
+                    console.log('Page:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
